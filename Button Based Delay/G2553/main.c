@@ -30,12 +30,12 @@ void main(void)
         {
             reset = 0;                          //reset variable
             if(difference <= 0){                   //if counter resets between holds
-                TA0CCR0 = 65535+difference+TA0R; //TA0 = 2^16 - when button is pressed + when button is let go + last button press time
+                TA0CCR0 = 65535+difference+TA0R; //TA0 = 2^16 +difference + last button press time
                 frequency = 65535+difference;    //update frequency value
             }
             else
             {
-                TA0CCR0=difference+TA0R;         //TA0 = when button is released - button pressed + last button press time
+                TA0CCR0=difference+TA0R;         //TA0 =difference + last button press time
                 frequency = difference;          //update frequency value
             }
         }
